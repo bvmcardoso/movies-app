@@ -4,6 +4,8 @@ function MovieListPage() {
 
     const [searchTerm, setSearchTerm] = useState('');
 
+    const [movies, setMovies] = useState([])
+
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value);
     }
@@ -14,15 +16,26 @@ function MovieListPage() {
         fetch(searchUrl)
         .then(response => response.json())
             .then(result => {
-            console.log(result)
+                setMovies(result.Search)
         })
     }
+
+
+    const movieItems = movies.map(movie => {
+        return (
+            <div>
+                <img src={movie.Poster} />
+                <h3>{movie.Title}</h3>
+            </div>
+        )
+    })
 
     return (
         <div>
             <h1>Movie list page</h1>
             Search: <input type="text" onChange={ handleSearchTermChange } />
-            <button onClick={ ()=> fetchMovies(searchTerm) }>Search</button>
+            <button onClick={() => fetchMovies(searchTerm)}>Search</button>
+            {movieItems}
         </div>
     )
 }
