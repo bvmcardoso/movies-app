@@ -75,7 +75,7 @@ function MovieListPage() {
                 <div class="row py-lg-5">
                     <div class="col-lg-6 col-md-8 mx-auto">
                         <h1 class="fw-light">Movie Search</h1>
-                        <p class="lead text-muted">We want to help you find the right movie. Start a search and see what you'll be watching this night!</p>
+                        <p class="lead text-muted">We want to help you find the right movie. Start a search and see what you'll be watching tonight!</p>
                         <p>
                             <input type="text" onChange={handleSearchTermChange} placeholder="ex. Batman" />
                         </p>
